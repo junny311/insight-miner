@@ -1,0 +1,24 @@
+# Core LangChain and related components
+langchain
+langchain-core
+langchain-community
+langchain-google-genai
+
+# LlamaIndex packages for parsing and using the LlamaParse service
+llama-index
+llama-cloud
+
+# Vector Database for multi-vector storage
+chromadb
+
+# Google AI SDK for Gemini
+google-generativeai
+
+# Web framework for the user interface
+streamlit
+
+# For data analysis and manipulation within agents
+pandas
+
+# For managing environment variables (like API keys)
+python-dotenv
