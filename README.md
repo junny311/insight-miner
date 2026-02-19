@@ -1,59 +1,50 @@
 # Insight-Miner
 
 간결하고 깔끔한 개발자 포트폴리오 스타일의 프로젝트 소개서입니다. 이 저장소는 멀티모달 문서(특히 PDF)에서 텍스트, 표, 이미지를 추출하고 분석하는 연구/프로토타입 코드와 문서를 포함합니다.
+# Insight-Miner
 
-## 한줄 요약
+간단한 개발자 포트폴리오 스타일 README입니다. 이 저장소는 멀티모달 문서(특히 PDF)를 파싱하여 텍스트, 표, 이미지에서 구조화된 데이터를 추출하고 분석하는 프로토타입 코드를 포함합니다.
 
-멀티모달 문서 분석 파이프라인 — PDF → 파싱 → 벡터 저장 → RAG/코드 기반 분석.
+한눈에 보기
 
-## 핵심 기능
+- 역할: 멀티모달 문서 파싱 · 임베딩 · 검색 · 분석 데모
+- 목적: 복잡한 보고서(표/차트 포함)에서 신뢰 가능한 구조화 데이터와 분석 결과를 얻기 위한 실험
 
-- 멀티모달 파싱: 텍스트, 표, 이미지에서 구조화된 데이터 추출
-- 멀티 벡터 검색: ChromaDB 기반 벡터 저장 및 검색
-- 동적 분석 엔진: 질의에 따라 RAG 또는 Python 실행기로 전환
-- Streamlit UI: 간단한 데모용 웹 인터페이스
+주요 기능
 
-## 기술 스택
+- PDF 파싱 (텍스트 · 표 · 이미지)
+- 표 및 이미지의 구조화/요약 추출
+- ChromaDB 기반 벡터 저장 및 RAG 검색
+- 질의에 따라 Python 코드를 실행하는 분석 워크플로우
+
+기술 스택
 
 - Python 3.10+
-- LangChain, LlamaIndex (LlamaParse) / unstructured
+- LangChain / LlamaIndex (LlamaParse) 또는 unstructured
 - ChromaDB
-- Streamlit
+- Streamlit (간단한 데모 UI)
 - pandas
-- python-dotenv
 
-## 리포지토리 구조
+파일/구조
 
-- `agent.py`, `ingestion.py`, `rag_chain.py`, `storage.py`, `main.py` — 핵심 소스 코드
+- `agent.py`, `ingestion.py`, `rag_chain.py`, `storage.py`, `main.py` — 핵심 코드
 - `requirements.txt` — 의존성
 - `.env.example` — 환경변수 템플릿 (실제 키는 커밋하지 마세요)
 
-## 빠른 시작
-
-1. 리포지토리 클론
+빠른 시작
 
 ```bash
 git clone https://github.com/junny311/insight-miner.git
 cd insight-miner
-```
-
-2. 가상환경 생성 및 활성화
-
-```bash
 python -m venv venv
 # Windows
 .\venv\Scripts\activate
 # macOS / Linux
 source venv/bin/activate
-```
-
-3. 의존성 설치
-
-```bash
 pip install -r requirements.txt
 ```
 
-4. 환경 변수 설정
+환경 변수 설정
 
 ```text
 # 복사: .env.example -> .env
@@ -61,23 +52,17 @@ GOOGLE_API_KEY=YOUR_GOOGLE_API_KEY
 LLAMA_CLOUD_API_KEY=YOUR_LLAMA_API_KEY
 ```
 
-5. 데모 실행 (Streamlit)
+데모 실행
 
 ```bash
 streamlit run main.py
 ```
 
-## 주의 및 정리
+주의
 
-- 대용량 바이너리(데이터베이스, PDF, 파싱 결과 등)는 저장소에서 제거했습니다. 관련 데이터는 로컬에서 관리하세요.
-- `.env` 파일에 민감한 키를 저장하지 말고, 깃에 업로드하지 마세요. 필요 시 GitHub Secrets 또는 CI 환경 변수를 사용하세요.
+- 민감한 키는 `.env`에 보관하더라도 절대 커밋하지 마세요.
+- 대용량 바이너리(데이터베이스, 원본 PDF, 파싱 캐시 등)는 저장소에서 제거했습니다. 로컬이나 안전한 스토리지에 보관하세요.
 
-## 다음 단계(권장)
+원하시면 README에 데모 스크린샷/사용 예시를 추가하거나, 코드를 `src/`로 정리하고 간단한 테스트를 추가해 드리겠습니다.
+```
 
-- 코드 정리: 모듈을 `src/`로 분리, 테스트 추가
-- 데모 영상/스크린샷 추가 (README 상단)
-- 간단한 예제 노트북 또는 스크린샷으로 사용법 문서화
-
----
-
-문의: 저장소 정리를 더 진행하거나 README 스타일/문구를 세부 조정할까요?
